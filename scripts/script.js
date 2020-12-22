@@ -1,4 +1,6 @@
+import { videoPlayerInit } from './videoPlayer.js';
 import { radioPlayerInit } from './radioPlayer.js';
+import { musicPlayerInit } from './musicPlayer.js';
 
 const playerBtn = document.querySelectorAll('.player-btn');
 const playerBlock = document.querySelectorAll('.player-block');
@@ -18,4 +20,17 @@ playerBtn.forEach((btn, i) =>
 	})
 );
 
+videoPlayerInit();
 radioPlayerInit();
+musicPlayerInit();
+
+/* for (let i = 0; i < 3; i++) {
+	setTimeout(() => {
+		console.log(i);
+	}, 0);
+} */
+/* 
+const foo = ({ a, b }) => a + b;
+
+const app = () => foo({ a: 292, b: 3125 });
+console.log(app()); */
