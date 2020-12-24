@@ -12,6 +12,15 @@ export const videoPlayerInit = () => {
 		videoPlayer.requestFullscreen();
 	});
 
+	// for mazilla browser to display control buttons
+	videoPlayer.addEventListener('fullscreenchange', () => {
+		if (document.fullscreen) {
+			videoPlayer.controls = true;
+		} else {
+			videoPlayer.controls = false;
+		}
+	});
+
 	const toggleIcon = () => {
 		if (videoPlayer.paused) {
 			videoButtonPlay.classList.remove('fa-pause');
@@ -85,4 +94,9 @@ export const videoPlayerInit = () => {
 	});
 
 	changeValue();
+
+	return () => {
+		videoPlayer.pause();
+		toggleIcon();
+	};
 };
